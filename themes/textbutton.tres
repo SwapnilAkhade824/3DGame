@@ -1,0 +1,88 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://ddevcd6s3xtc1"]
+
+[ext_resource type="FontFile" uid="uid://c8lcejx6pyota" path="res://assets/Fonts/GrimoireOfDeath-Regular.ttf" id="1_nwf2f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4reet"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.164706, 0.0784314, 0.180392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8qiga"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_obo2x"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.360784, 0.180392, 0.388235, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 5
+expand_margin_left = 18.0
+expand_margin_top = 5.0
+expand_margin_right = 18.0
+shadow_color = Color(0.635294, 0.243137, 0.552941, 1)
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ycmw6"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.227451, 0.117647, 0.247059, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 5
+expand_margin_left = 18.0
+expand_margin_top = 5.0
+expand_margin_right = 18.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q154l"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.482353, 0.117647, 0.266667, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 5
+expand_margin_left = 18.0
+expand_margin_top = 5.0
+
+[resource]
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/h_separation = 0
+Button/constants/icon_max_width = 40
+Button/font_sizes/font_size = 25
+Button/fonts/font = ExtResource("1_nwf2f")
+Button/styles/disabled = SubResource("StyleBoxFlat_4reet")
+Button/styles/focus = SubResource("StyleBoxEmpty_8qiga")
+Button/styles/hover = SubResource("StyleBoxFlat_obo2x")
+Button/styles/normal = SubResource("StyleBoxFlat_ycmw6")
+Button/styles/pressed = SubResource("StyleBoxFlat_q154l")

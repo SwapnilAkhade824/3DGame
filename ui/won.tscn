@@ -1,0 +1,89 @@
+[gd_scene load_steps=6 format=3 uid="uid://by1y3bobebtw2"]
+
+[ext_resource type="Texture2D" uid="uid://b803qn7axqxd3" path="res://assets/BGs/victorybg.jpg" id="1_ckaqx"]
+[ext_resource type="Theme" uid="uid://b3gielau1lypl" path="res://themes/labels.tres" id="2_tjv24"]
+[ext_resource type="Theme" uid="uid://cbmfyw02a06j2" path="res://themes/iconbutton.tres" id="3_y4l5i"]
+[ext_resource type="Texture2D" uid="uid://hbus1wjjcds3" path="res://assets/Icons/exit.svg" id="4_npeqd"]
+[ext_resource type="Theme" uid="uid://ddevcd6s3xtc1" path="res://themes/textbutton.tres" id="5_bw3ag"]
+
+[node name="won" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ckaqx")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.298039)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.313726)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.334
+anchor_right = 0.5
+anchor_bottom = 0.334
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_tjv24")
+theme_override_colors/font_color = Color(0.85098, 0.776471, 0.878431, 1)
+theme_override_font_sizes/font_size = 128
+text = "victory"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.039
+anchor_top = 0.07
+anchor_right = 0.039
+anchor_bottom = 0.07
+offset_left = -28.928
+offset_top = -29.36
+offset_right = 30.072
+offset_bottom = 29.64
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_y4l5i")
+icon = ExtResource("4_npeqd")
+icon_alignment = 1
+
+[node name="PlayAgainButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.667
+anchor_right = 0.5
+anchor_bottom = 0.667
+offset_left = -123.0
+offset_top = -44.216
+offset_right = 124.0
+offset_bottom = 43.784
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_bw3ag")
+theme_override_font_sizes/font_size = 60
+text = "play again"

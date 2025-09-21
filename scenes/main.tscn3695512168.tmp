@@ -1,0 +1,123 @@
+[gd_scene load_steps=15 format=3 uid="uid://cmc8nb8lfnm6s"]
+
+[ext_resource type="Script" uid="uid://7pn4qm2pji2e" path="res://addons/SimpleDungeons/DungeonGenerator3D.gd" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://cly22ml1tousb" path="res://scripts/main.gd" id="1_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://cgxvbcs150qbh" path="res://rooms/entrance_room.tscn" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://bp5bxvwfdkctv" path="res://rooms/living_room.tscn" id="3_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://dfa8s611ej6mx" path="res://rooms/corridor.tscn" id="4_tefeu"]
+[ext_resource type="Script" uid="uid://c68cjwpxuec7l" path="res://scripts/controls.gd" id="5_choun"]
+[ext_resource type="PackedScene" uid="uid://bpl0wjidyvch0" path="res://ui/ingame.tscn" id="6_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://dexbb2a3uy6b" path="res://ui/lost.tscn" id="7_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://cioy2tg3hvxxj" path="res://ui/main.tscn" id="8_trceg"]
+[ext_resource type="PackedScene" uid="uid://c20l2h5sp4545" path="res://ui/paused.tscn" id="9_a8y0u"]
+[ext_resource type="PackedScene" uid="uid://by1y3bobebtw2" path="res://ui/won.tscn" id="10_jkv2x"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0wfyh"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_sugp2"]
+sky_material = SubResource("ProceduralSkyMaterial_0wfyh")
+
+[sub_resource type="Environment" id="Environment_jyhfs"]
+background_mode = 2
+sky = SubResource("Sky_sugp2")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="main" type="Node3D"]
+script = ExtResource("1_ya4ey")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jyhfs")
+
+[node name="DungeonGenerator3D" type="Node3D" parent="."]
+process_mode = 3
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -114.38965)
+script = ExtResource("1_o5qli")
+room_scenes = Array[PackedScene]([ExtResource("2_jyhfs"), ExtResource("3_tbgi4")])
+corridor_room_scene = ExtResource("4_tefeu")
+dungeon_size = Vector3i(10, 1, 10)
+generate_seed = "237262455"
+generate_threaded = true
+metadata/_custom_type_script = "uid://7pn4qm2pji2e"
+
+[node name="RoomsContainer" type="Node3D" parent="DungeonGenerator3D"]
+
+[node name="LivingRoom_0" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("3_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -30)
+
+[node name="EntranceRoom_1" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("2_jyhfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, 5)
+
+[node name="LivingRoom_2" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("3_tbgi4")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -35, 0, 30)
+
+[node name="LivingRoom_3" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("3_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, 40)
+
+[node name="LivingRoom_4" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("3_tbgi4")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -20, 0, 5)
+
+[node name="Corridor_5" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -25)
+
+[node name="Corridor_6" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -15)
+
+[node name="Corridor_7" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 25)
+
+[node name="Corridor_8" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 25)
+
+[node name="Corridor_9" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 25)
+
+[node name="Corridor_10" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 25)
+
+[node name="Corridor_11" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 35)
+
+[node name="Corridor_12" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, 15)
+
+[node name="Corridor_13" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 0, 5)
+
+[node name="mapview" type="Camera3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.809017, 0.58778524, 0, -0.58778524, 0.809017, 0, 70.065254, 0)
+fov = 38.7
+
+[node name="controls" type="Container" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_choun")
+
+[node name="ingame" parent="controls" instance=ExtResource("6_ya4ey")]
+visible = false
+layout_mode = 2
+
+[node name="lost" parent="controls" instance=ExtResource("7_eb6dy")]
+visible = false
+layout_mode = 2
+
+[node name="main" parent="controls" instance=ExtResource("8_trceg")]
+layout_mode = 2
+
+[node name="paused" parent="controls" instance=ExtResource("9_a8y0u")]
+visible = false
+layout_mode = 2
+
+[node name="won" parent="controls" instance=ExtResource("10_jkv2x")]
+visible = false
+layout_mode = 2

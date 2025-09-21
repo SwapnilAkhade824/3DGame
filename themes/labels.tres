@@ -1,0 +1,19 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://b3gielau1lypl"]
+
+[ext_resource type="FontFile" uid="uid://c8lcejx6pyota" path="res://assets/Fonts/GrimoireOfDeath-Regular.ttf" id="1_ks07f"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ldt73"]
+texture_margin_left = 25.0
+texture_margin_top = 15.0
+texture_margin_right = 25.0
+texture_margin_bottom = 15.0
+
+[resource]
+Label/colors/font_color = Color(0.878431, 0.839216, 0.913725, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(1, 0, 0, 0.313726)
+Label/constants/shadow_offset_x = 5
+Label/constants/shadow_offset_y = 5
+Label/font_sizes/font_size = 72
+Label/fonts/font = ExtResource("1_ks07f")
+Label/styles/normal = SubResource("StyleBoxTexture_ldt73")

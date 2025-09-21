@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=3 uid="uid://c20l2h5sp4545"]
+
+[ext_resource type="Texture2D" uid="uid://d1v1e6a23u8hd" path="res://assets/BGs/black-screen.jpg" id="1_ocodi"]
+[ext_resource type="Theme" uid="uid://b3gielau1lypl" path="res://Themes/labels.tres" id="2_85lix"]
+[ext_resource type="Theme" uid="uid://cbmfyw02a06j2" path="res://Themes/iconbutton.tres" id="3_72irf"]
+[ext_resource type="Theme" uid="uid://ddevcd6s3xtc1" path="res://Themes/textbutton.tres" id="3_jddmy"]
+[ext_resource type="Texture2D" uid="uid://hbus1wjjcds3" path="res://assets/Icons/exit.svg" id="4_kgd8m"]
+
+[sub_resource type="Theme" id="Theme_sm282"]
+
+[node name="paused" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_sm282")
+texture = ExtResource("1_ocodi")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.298039)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.313726)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.334
+anchor_right = 0.5
+anchor_bottom = 0.334
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_85lix")
+theme_override_colors/font_color = Color(0.85098, 0.776471, 0.878431, 1)
+theme_override_font_sizes/font_size = 128
+text = "paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.039
+anchor_top = 0.07
+anchor_right = 0.039
+anchor_bottom = 0.07
+offset_left = -28.928
+offset_top = -29.36
+offset_right = 30.072
+offset_bottom = 29.64
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_72irf")
+icon = ExtResource("4_kgd8m")
+icon_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.667
+anchor_right = 0.5
+anchor_bottom = 0.667
+offset_left = -123.0
+offset_top = -44.216
+offset_right = 124.0
+offset_bottom = 43.784
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_jddmy")
+theme_override_font_sizes/font_size = 60
+text = "resume"

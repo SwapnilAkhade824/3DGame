@@ -1,0 +1,78 @@
+extends Container
+class_name controls
+
+@onready var uiMain = $main
+@onready var uiIngame = $ingame
+@onready var uiPaused = $paused
+@onready var uiWon = $won
+@onready var uiLost = $lost
+@onready var game = $".."
+
+@onready var key_label = uiIngame.get_node("KeyLabel")
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	# making the cursor visible
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	# pausing the game
+	get_tree().paused = true
+	# connecting the buttons 
+	# main ui 
+	uiMain.get_node("StartButton").connect("pressed",_on_start_pressed)
+	uiMain.get_node("RegenerateButton").connect("pressed",_on_regeneration_pressed)
+	# ingame screen
+	uiIngame.get_node("ExitButton").connect("pressed",_on_exit_pressed)
+	uiIngame.get_node("PauseButton").connect("pressed",_on_pause_pressed)
+	uiIngame.get_node("RestartButton").connect("pressed",_on_restart_pressed)
+	# lost screen
+	uiLost.get_node("ExitButton").connect("pressed",_on_exit_pressed)
+	uiLost.get_node("PlayAgainButton").connect("pressed",_on_restart_pressed)
+	# won screen
+	uiWon.get_node("ExitButton").connect("pressed",_on_exit_pressed)
+	uiWon.get_node("PlayAgainButton").connect("pressed",_on_restart_pressed)
+	# paused screen
+	uiPaused.get_node("ExitButton").connect("pressed",_on_exit_pressed)
+	uiPaused.get_node("ResumeButton").connect("pressed",_on_resume_pressed)
+	# start by main screen
+	show_screen("main")
+	
+func _process(delta: float) -> void:
+	key_label.text = "🗝️ :  %d" % game.keys_collected
+	
+func show_screen(screen_name):
+	uiMain.visible = (screen_name == "main")
+	uiIngame.visible = (screen_name == "ingame")
+	uiLost.visible = (screen_name == "lost")
+	uiWon.visible = (screen_name == "won")
+	uiPaused.visible = (screen_name == "pause")
+	
+	if screen_name == "ingame": 
+		get_tree().paused = false
+		game.spawn_player()
+	
+	else: 
+		get_tree().paused = true
+	
+func _on_start_pressed():
+	show_screen("ingame")
+	print("Start Pressed")
+	
+func _on_exit_pressed():
+	show_screen("main")
+	print("Exit Pressed")
+	
+func _on_pause_pressed():
+	show_screen("pause")
+	print("Pause Pressed")
+	
+func _on_restart_pressed():
+	show_screen("ingame")
+	print("Restart Pressed")
+	
+func _on_resume_pressed():
+	show_screen("ingame")
+	print("Resume Pressed")
+	
+func _on_regeneration_pressed():
+	game.generate_new_map()
+	print("Regeneration Pressed")
