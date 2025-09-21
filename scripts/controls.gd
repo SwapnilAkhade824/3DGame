@@ -8,7 +8,9 @@ class_name controls
 @onready var uiLost = $lost
 @onready var game = $".."
 
+# display content labels
 @onready var key_label = uiIngame.get_node("KeyLabel")
+@onready var message_label = uiIngame.get_node("Message")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -37,7 +39,11 @@ func _ready() -> void:
 	show_screen("main")
 	
 func _process(delta: float) -> void:
+	# collected item data
 	key_label.text = "🗝️ :  %d" % game.keys_collected
+	# message block
+	message_label.text = game.message
+	message_label.visible = (message_label.text != "")
 	
 func show_screen(screen_name):
 	uiMain.visible = (screen_name == "main")
@@ -76,3 +82,4 @@ func _on_resume_pressed():
 func _on_regeneration_pressed():
 	game.generate_new_map()
 	print("Regeneration Pressed")
+	

@@ -1,11 +1,28 @@
-[gd_scene load_steps=7 format=3 uid="uid://bpl0wjidyvch0"]
+[gd_scene load_steps=10 format=3 uid="uid://bpl0wjidyvch0"]
 
 [ext_resource type="Texture2D" uid="uid://d1v1e6a23u8hd" path="res://assets/BGs/black-screen.jpg" id="1_4reet"]
 [ext_resource type="Texture2D" uid="uid://hbus1wjjcds3" path="res://assets/Icons/exit.svg" id="1_8qiga"]
 [ext_resource type="Theme" uid="uid://cbmfyw02a06j2" path="res://themes/iconbutton.tres" id="1_lccsd"]
 [ext_resource type="Texture2D" uid="uid://ddab3kuly1btu" path="res://assets/Icons/pause.svg" id="2_lccsd"]
 [ext_resource type="Texture2D" uid="uid://bp3egg51cae7v" path="res://assets/Icons/restart.svg" id="3_4reet"]
-[ext_resource type="Theme" uid="uid://b4tlqmu5xf0us" path="res://themes/data_labels.tres" id="6_rdm66"]
+[ext_resource type="FontFile" uid="uid://c8lcejx6pyota" path="res://assets/Fonts/GrimoireOfDeath-Regular.ttf" id="6_0bmo4"]
+[ext_resource type="Theme" uid="uid://cvwud4midpjwd" path="res://themes/message_labels.tres" id="6_rfm2w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jvxp"]
+bg_color = Color(0.227451, 0.117647, 0.247059, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 20.0
+expand_margin_top = 10.0
+expand_margin_right = 20.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="Theme" id="Theme_0garw"]
+Label/font_sizes/font_size = 30
+Label/fonts/font = ExtResource("6_0bmo4")
+Label/styles/normal = SubResource("StyleBoxFlat_2jvxp")
 
 [node name="ingame" type="Control"]
 process_mode = 3
@@ -94,7 +111,20 @@ offset_right = 38.5
 offset_bottom = 19.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("6_rdm66")
+theme = SubResource("Theme_0garw")
 text = "🗝️ :  0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Message" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_rfm2w")
 horizontal_alignment = 1
 vertical_alignment = 1

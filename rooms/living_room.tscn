@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://bp5bxvwfdkctv"]
+[gd_scene load_steps=61 format=4 uid="uid://bp5bxvwfdkctv"]
 
 [ext_resource type="Script" uid="uid://fhnhsclc1310" path="res://rooms/living_room.gd" id="1_a8a4y"]
 
@@ -588,6 +588,8 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_a3pwi")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a8a4y"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tobr4"]
 resource_name = "black"
@@ -1574,6 +1576,12 @@ shape = SubResource("ConcavePolygonShape3D_s07bv")
 transform = Transform3D(2.2591, -1.80683, -0.0273798, -0.153061, -0.147655, -2.88508, 1.80054, 2.25444, -0.210902, -1.90601, -3.00886, 4.33496)
 mesh = SubResource("ArrayMesh_r0nt4")
 skeleton = NodePath("")
+
+[node name="key_pick" type="Area3D" parent="Models/Decorations/Table/Key_001"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Models/Decorations/Table/Key_001/key_pick"]
+transform = Transform3D(0.38730827, 0.31605136, -0.0101965405, -0.3154408, 0.38728645, 0.022503495, 0.022122473, -0.010998761, 0.49938926, -0.26823866, 0.1911974, 0.21735942)
+shape = SubResource("BoxShape3D_a8a4y")
 
 [node name="candle" type="MeshInstance3D" parent="Models/Decorations/Table"]
 transform = Transform3D(2.30821, 0, 0, 0, 2.30821, 0, 0, 0, 2.30821, -0.175301, -3.01265, 4.564)

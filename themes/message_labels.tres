@@ -1,0 +1,24 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cvwud4midpjwd"]
+
+[ext_resource type="FontFile" uid="uid://d67ovhtgcos8" path="res://assets/Fonts/BadComic-Regular.ttf" id="1_rhbrh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_by8nv"]
+bg_color = Color(0.22745098, 0.11764706, 0.24705882, 0.74509805)
+border_width_left = 24
+border_width_right = 24
+border_color = Color(0.5921569, 0.31764707, 1, 0.69411767)
+border_blend = true
+corner_radius_top_left = 24
+corner_radius_bottom_right = 24
+expand_margin_left = 10.0
+expand_margin_top = 5.0
+expand_margin_right = 10.0
+expand_margin_bottom = 12.0
+shadow_color = Color(0.22745098, 0.11764706, 0.24705882, 0.74509805)
+shadow_size = 1
+shadow_offset = Vector2(5, 5)
+
+[resource]
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_rhbrh")
+Label/styles/normal = SubResource("StyleBoxFlat_by8nv")
