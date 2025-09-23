@@ -17,6 +17,7 @@ func _process(delta: float) -> void:
 
 var region
 func _player_activity(game_node, entrance_room: DungeonRoom3D, living_rooms: Array[DungeonRoom3D]):
+	#print(entrance_room,living_rooms)
 	# connections of the region
 	# exit region in the entrance room 
 	region = entrance_room.get_node("exit_region")

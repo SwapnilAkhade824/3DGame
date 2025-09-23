@@ -7,6 +7,7 @@ class_name controls
 @onready var uiWon = $won
 @onready var uiLost = $lost
 @onready var game = $".."
+@onready var map = $"../DungeonGenerator3D"
 
 # display content labels
 @onready var key_label = uiIngame.get_node("KeyLabel")
@@ -58,13 +59,16 @@ func show_screen(screen_name):
 	
 	else: 
 		get_tree().paused = true
-	
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
 func _on_start_pressed():
+	game._access_the_rooms()
 	show_screen("ingame")
 	print("Start Pressed")
 	
 func _on_exit_pressed():
 	show_screen("main")
+	reset_game()
 	print("Exit Pressed")
 	
 func _on_pause_pressed():
@@ -73,6 +77,7 @@ func _on_pause_pressed():
 	
 func _on_restart_pressed():
 	show_screen("ingame")
+	reset_game()
 	print("Restart Pressed")
 	
 func _on_resume_pressed():
@@ -80,6 +85,15 @@ func _on_resume_pressed():
 	print("Resume Pressed")
 	
 func _on_regeneration_pressed():
+	AutoLoad.Seed = randi()
 	game.generate_new_map()
 	print("Regeneration Pressed")
 	
+func end_game(case):
+	if case == "lost":
+		show_screen("lost")
+	elif case == "won":
+		show_screen("won")
+	
+func reset_game():
+	get_tree().reload_current_scene()

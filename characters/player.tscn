@@ -60,7 +60,6 @@ func _ready() -> void:
 	check_input_mappings()
 	look_rotation.y = rotation.y
 	look_rotation.x = head.rotation.x
-	
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Mouse capturing
@@ -190,6 +189,7 @@ albedo_color = Color(0.9942247, 0.4149807, 0.1903475, 1)
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dnjla"]
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
+process_mode = 1
 transform = Transform3D(0.9999733, 0, 0.007312948, 0, 1, 0, -0.007312948, 0, 0.9999733, 0, 0, 0)
 script = SubResource("GDScript_6p3mc")
 
@@ -201,7 +201,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_6p3mc")
 shape = SubResource("CapsuleShape3D_dnjla")
 
 [node name="Head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6474782, 0)
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0.6738081, 0)
 
 [node name="playerview" type="Camera3D" parent="Head"]
 unique_name_in_owner = true
