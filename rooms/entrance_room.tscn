@@ -612,7 +612,7 @@ mesh = SubResource("ArrayMesh_jxfl1")
 skeleton = NodePath("")
 
 [node name="PlayerSpawnPoint" type="Node3D" parent="." groups=["player_spawn_point"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.010935187, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8866961, 0)
 
 [node name="exit_region" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.7290022, -4.4139442)

@@ -57,6 +57,7 @@ var freeflying : bool = false
 @onready var collider: CollisionShape3D = $Collider
 
 func _ready() -> void:
+	
 	check_input_mappings()
 	look_rotation.y = rotation.y
 	look_rotation.x = head.rotation.x
@@ -190,7 +191,7 @@ albedo_color = Color(0.9942247, 0.4149807, 0.1903475, 1)
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 process_mode = 1
-transform = Transform3D(0.9999733, 0, 0.007312948, 0, 1, 0, -0.007312948, 0, 0.9999733, 0, 0, 0)
+transform = Transform3D(1.9999465, 0, 0.014625895, 0, 2, 0, -0.014625895, 0, 1.9999465, 0, 0, 0)
 script = SubResource("GDScript_6p3mc")
 
 [node name="mesh" type="MeshInstance3D" parent="."]
@@ -205,5 +206,6 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0.673808
 
 [node name="playerview" type="Camera3D" parent="Head"]
 unique_name_in_owner = true
+transform = Transform3D(0.5000001, 0, -4.656613e-10, 0, 0.5, 0, 4.656613e-10, 0, 0.5000001, 0, 0.76232636, 0)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Head"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cmc8nb8lfnm6s"]
+[gd_scene load_steps=21 format=3 uid="uid://cmc8nb8lfnm6s"]
 
 [ext_resource type="Script" uid="uid://7pn4qm2pji2e" path="res://addons/SimpleDungeons/DungeonGenerator3D.gd" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cly22ml1tousb" path="res://scripts/main.gd" id="1_ya4ey"]
@@ -6,8 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://bp5bxvwfdkctv" path="res://rooms/living_room.tscn" id="3_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://dfa8s611ej6mx" path="res://rooms/corridor.tscn" id="4_tefeu"]
 [ext_resource type="Script" uid="uid://c68cjwpxuec7l" path="res://scripts/controls.gd" id="5_choun"]
+[ext_resource type="Script" uid="uid://fhnhsclc1310" path="res://rooms/living_room.gd" id="6_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://bpl0wjidyvch0" path="res://ui/ingame.tscn" id="6_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://dexbb2a3uy6b" path="res://ui/lost.tscn" id="7_eb6dy"]
+[ext_resource type="Script" uid="uid://c6ero3fupqx4x" path="res://rooms/corridor.gd" id="7_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://cioy2tg3hvxxj" path="res://ui/main.tscn" id="8_trceg"]
 [ext_resource type="PackedScene" uid="uid://c20l2h5sp4545" path="res://ui/paused.tscn" id="9_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://by1y3bobebtw2" path="res://ui/won.tscn" id="10_jkv2x"]
@@ -51,62 +53,115 @@ surface_material_override/0 = SubResource("StandardMaterial3D_trceg")
 process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -114.38965)
 script = ExtResource("1_o5qli")
-room_scenes = Array[PackedScene]([ExtResource("2_jyhfs"), ExtResource("3_tbgi4")])
+room_scenes = Array[PackedScene]([ExtResource("3_tbgi4")])
 corridor_room_scene = ExtResource("4_tefeu")
 dungeon_size = Vector3i(10, 1, 10)
 generate_seed = "2080868900"
 generate_threaded = true
 metadata/_custom_type_script = "uid://7pn4qm2pji2e"
 
+[node name="EntranceRoom" parent="DungeonGenerator3D" instance=ExtResource("2_jyhfs")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5, 0, 45)
+
 [node name="RoomsContainer" type="Node3D" parent="DungeonGenerator3D"]
 
-[node name="EntranceRoom_0" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("2_jyhfs")]
-transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, -5, 0, -5)
+[node name="LivingRoom_0" type="Node3D" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("3_tbgi4")]
+transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, -10, 0, 5)
+script = ExtResource("6_jkv2x")
+size_in_voxels = Vector3i(3, 1, 2)
+min_count = 4
+metadata/_custom_type_script = "uid://cqeb6jsje58xi"
 
-[node name="LivingRoom_1" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("3_tbgi4")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 35, 0, 20)
+[node name="LivingRoom_1" type="Node3D" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("3_tbgi4")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 25, 0, 30)
+script = ExtResource("6_jkv2x")
+size_in_voxels = Vector3i(3, 1, 2)
+min_count = 4
+metadata/_custom_type_script = "uid://cqeb6jsje58xi"
 
-[node name="LivingRoom_2" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("3_tbgi4")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10, 0, -15)
+[node name="LivingRoom_2" type="Node3D" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("3_tbgi4")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20, 0, -25)
+script = ExtResource("6_jkv2x")
+size_in_voxels = Vector3i(3, 1, 2)
+min_count = 4
+metadata/_custom_type_script = "uid://cqeb6jsje58xi"
 
-[node name="LivingRoom_3" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("3_tbgi4")]
+[node name="LivingRoom_3" type="Node3D" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("3_tbgi4")]
 transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, -30, 0, 35)
+script = ExtResource("6_jkv2x")
+size_in_voxels = Vector3i(3, 1, 2)
+min_count = 4
+metadata/_custom_type_script = "uid://cqeb6jsje58xi"
 
-[node name="LivingRoom_4" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("3_tbgi4")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 35)
+[node name="Corridor_4" type="Node3D" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 35)
+script = ExtResource("7_jbj1t")
+metadata/_custom_type_script = "uid://cqeb6jsje58xi"
 
-[node name="Corridor_5" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_tefeu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 5)
+[node name="Corridor_5" type="Node3D" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 25)
+script = ExtResource("7_jbj1t")
+metadata/_custom_type_script = "uid://cqeb6jsje58xi"
 
-[node name="Corridor_6" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_tefeu")]
+[node name="Corridor_6" type="Node3D" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 25)
+script = ExtResource("7_jbj1t")
+metadata/_custom_type_script = "uid://cqeb6jsje58xi"
+
+[node name="Corridor_7" type="Node3D" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 15)
+script = ExtResource("7_jbj1t")
+metadata/_custom_type_script = "uid://cqeb6jsje58xi"
+
+[node name="Corridor_8" type="Node3D" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_tefeu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 5)
+script = ExtResource("7_jbj1t")
+metadata/_custom_type_script = "uid://cqeb6jsje58xi"
 
-[node name="Corridor_7" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_tefeu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 5)
+[node name="Corridor_9" type="Node3D" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5)
+script = ExtResource("7_jbj1t")
+metadata/_custom_type_script = "uid://cqeb6jsje58xi"
 
-[node name="Corridor_8" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_tefeu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 15)
+[node name="Corridor_10" type="Node3D" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -15)
+script = ExtResource("7_jbj1t")
+metadata/_custom_type_script = "uid://cqeb6jsje58xi"
 
-[node name="Corridor_9" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_tefeu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 5)
+[node name="Corridor_11" type="Node3D" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -25)
+script = ExtResource("7_jbj1t")
+metadata/_custom_type_script = "uid://cqeb6jsje58xi"
 
-[node name="Corridor_10" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_tefeu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 15)
+[node name="Corridor_12" type="Node3D" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 25)
+script = ExtResource("7_jbj1t")
+metadata/_custom_type_script = "uid://cqeb6jsje58xi"
 
-[node name="Corridor_11" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_tefeu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 15)
+[node name="Corridor_13" type="Node3D" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 35)
+script = ExtResource("7_jbj1t")
+metadata/_custom_type_script = "uid://cqeb6jsje58xi"
 
-[node name="Corridor_12" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_tefeu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 15)
+[node name="Corridor_14" type="Node3D" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 45)
+script = ExtResource("7_jbj1t")
+metadata/_custom_type_script = "uid://cqeb6jsje58xi"
 
-[node name="Corridor_13" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_tefeu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -5)
+[node name="Corridor_15" type="Node3D" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 45)
+script = ExtResource("7_jbj1t")
+metadata/_custom_type_script = "uid://cqeb6jsje58xi"
 
-[node name="Corridor_14" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_tefeu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -15)
+[node name="Corridor_16" type="Node3D" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 45)
+script = ExtResource("7_jbj1t")
+metadata/_custom_type_script = "uid://cqeb6jsje58xi"
 
-[node name="Corridor_15" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_tefeu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -15)
+[node name="Corridor_17" type="Node3D" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 35)
+script = ExtResource("7_jbj1t")
+metadata/_custom_type_script = "uid://cqeb6jsje58xi"
 
 [node name="controls" type="Container" parent="."]
 anchors_preset = 15

@@ -37,6 +37,11 @@ func spawn_player():
 	if spawn_points.size() == 0: return
 	player = player_scene.instantiate()
 	spawn_points.pick_random().add_child(player)
+	
+	# Set global transform to spawn point's global transform
+	var spawn_transform = spawn_points.pick_random().global_transform
+	player.global_transform = spawn_transform
+	
 	for cam in player.find_children("*", "Camera3D"):
 		cam.current = true
 	player.call_deferred("grab_focus")
@@ -115,9 +120,10 @@ func player_exited_region(body: Node3D):
 	
 func _access_the_rooms():
 	var rooms = map.get_node("RoomsContainer")
+	entrance_room = rooms.get_parent().get_node("EntranceRoom")
 	for room in rooms.get_children():
-		if room.name.begins_with("EntranceRoom"):
-			entrance_room = room
+		#if room.name.begins_with("EntranceRoom"):
+			#entrance_room = room
 		if room.name.begins_with("LivingRoom"):
 			living_rooms.append(room)
 	
